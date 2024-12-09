@@ -1,0 +1,44 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/marked01one/Shared/code/projects/kernel-packet-sniffer/kernel/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+$(MODULE_NAME)-objs	Makefile	/^$(MODULE_NAME)-objs := $(MODULE_SRCS) $/;"	m
+BUF_SIZE	headers/writer.h	/^#define BUF_SIZE /;"	d
+HOOKS_H	headers/hooks.h	/^#define HOOKS_H$/;"	d
+KDIR	Makefile	/^KDIR := \/usr\/src\/linux-headers-$(shell uname -r)$/;"	m
+LOG_DIR	headers/writer.h	/^#define LOG_DIR /;"	d
+LOG_FILE_NAME	headers/writer.h	/^#define LOG_FILE_NAME /;"	d
+MAX_LOG_SIZE	headers/writer.h	/^#define MAX_LOG_SIZE /;"	d
+MODULE_NAME	Makefile	/^MODULE_NAME = sniffer$/;"	m
+MODULE_SRCS	Makefile	/^MODULE_SRCS := src\/hooks.o src\/writer.o main.o$/;"	m
+WRITER_H	headers/writer.h	/^#define WRITER_H$/;"	d
+all	Makefile	/^all:$/;"	t
+append_packet	src/writer.c	/^int append_packet(const char* data, ...)$/;"	f	typeref:typename:int
+clean	Makefile	/^clean:$/;"	t
+data	headers/hooks.h	/^    char* data;$/;"	m	struct:tcp_packet	typeref:typename:char *
+debug_dir	main.c	/^static struct dentry* debug_dir;$/;"	v	typeref:struct:dentry *	file:
+dest_addr	headers/hooks.h	/^    unsigned int* dest_addr;$/;"	m	struct:tcp_packet	typeref:typename:unsigned int *
+dest_port	headers/hooks.h	/^    int dest_port;$/;"	m	struct:tcp_packet	typeref:typename:int
+fp	src/writer.c	/^static struct file* fp;$/;"	v	typeref:struct:file *	file:
+log_buffer	main.c	/^static char* log_buffer;$/;"	v	typeref:typename:char *	file:
+netfilter_hook	src/hooks.c	/^unsigned int netfilter_hook(void *priv, struct sk_buff *sk_buf, const struct nf_hook_state *stat/;"	f	typeref:typename:unsigned int
+netfilter_hook_ops	main.c	/^static const struct nf_hook_ops netfilter_hook_ops = {$/;"	v	typeref:typename:const struct nf_hook_ops	file:
+obj-m	Makefile	/^obj-m := $(MODULE_NAME).o$/;"	m
+packet_fops	main.c	/^static const struct file_operations packet_fops;$/;"	v	typeref:typename:const struct file_operations	file:
+packet_mtx	src/writer.c	/^static struct mutex packet_mtx = __MUTEX_INITIALIZER(packet_mtx);$/;"	v	typeref:struct:mutex	file:
+pos	src/writer.c	/^static loff_t pos = 0;$/;"	v	typeref:typename:loff_t	file:
+print_packet	src/hooks.c	/^int print_packet(struct tcp_packet *packet)$/;"	f	typeref:typename:int
+ret	src/writer.c	/^static int ret;$/;"	v	typeref:typename:int	file:
+sniffer_exit	main.c	/^static void __exit sniffer_exit(void) {$/;"	f	typeref:typename:void __exit	file:
+sniffer_init	main.c	/^static int __init sniffer_init(void) {$/;"	f	typeref:typename:int __init	file:
+src_addr	headers/hooks.h	/^    unsigned int* src_addr;$/;"	m	struct:tcp_packet	typeref:typename:unsigned int *
+src_port	headers/hooks.h	/^    int src_port;$/;"	m	struct:tcp_packet	typeref:typename:int
+tcp_packet	headers/hooks.h	/^struct tcp_packet {$/;"	s
+timestamp	headers/hooks.h	/^    char* timestamp;$/;"	m	struct:tcp_packet	typeref:typename:char *

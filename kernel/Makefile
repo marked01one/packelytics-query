@@ -1,5 +1,5 @@
 MODULE_NAME = sniffer
-MODULE_SRCS := src/hooks.o main.o
+MODULE_SRCS := src/hooks.o src/writer.o main.o
 
 obj-m := $(MODULE_NAME).o
 $(MODULE_NAME)-objs := $(MODULE_SRCS) 
@@ -14,4 +14,4 @@ all:
 
 clean:
 	$(MAKE) -C $(KDIR) M=$(shell pwd) clean
-	rm -f *.o
+	rm -f *hookso

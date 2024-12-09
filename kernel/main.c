@@ -12,21 +12,19 @@
 #include "headers/hooks.h"
 
 
-#define MAX_LOG_SIZE (1024 * 1024)
-#define LOG_FILENAME "sniffer-data"
-
-
-
 // Initialize the netfilter hook
-static struct nf_hook_ops netfilter_hook_ops;
+static const struct nf_hook_ops netfilter_hook_ops = {
+    .hook = netfilter_hook,
+    .hooknum = NF_INET_PRE_ROUTING,
+    .pf = PF_INET,
+    .priority = NF_IP_PRI_FIRST
+};
+
+
+static const struct file_operations packet_fops;
 
 
 static int __init sniffer_init(void) {
-    netfilter_hook_ops.hook = netfilter_hook;
-    netfilter_hook_ops.hooknum = NF_INET_PRE_ROUTING;
-    netfilter_hook_ops.pf = PF_INET;
-    netfilter_hook_ops.priority = NF_IP_PRI_FIRST;
-
     // Register the hook
     nf_register_net_hook(&init_net, &netfilter_hook_ops);
     printk(KERN_INFO "TCP Sniffer loaded\n");

@@ -1,12 +1,10 @@
-#include <linux/module.h>
-#include <linux/kernel.h>
 #include <linux/netfilter.h>
-#include <linux/netfilter_ipv4.h>
 #include <linux/ip.h>
 #include <linux/tcp.h>
 #include <linux/skbuff.h>
 
 #include "../headers/hooks.h"
+#include "../headers/writer.h"
 
 
 int print_packet(struct tcp_packet *packet)
@@ -26,7 +24,8 @@ unsigned int netfilter_hook(void *priv, struct sk_buff *sk_buf, const struct nf_
 {
     struct iphdr* ip_header;    // IP header structure
     struct tcphdr* tcp_header;  // TCP header structure
-    struct tcp_packet packet;          // Pointer to packet data
+    struct tcp_packet packet;   // Pointer to packet data
+
 
     if (!sk_buf) return NF_ACCEPT;
 
@@ -45,6 +44,9 @@ unsigned int netfilter_hook(void *priv, struct sk_buff *sk_buf, const struct nf_
         if (sk_buf->len > (ip_header->ihl * 4 + tcp_header->doff * 4)) {
             packet.data = (unsigned char*)((unsigned char*) tcp_header + (tcp_header->doff * 4));
         }
+
+
+        append_packet("tcp,%pI4:%d,%pI4:%d\n", packet.src_addr, packet.src_port, packet.dest_addr, packet.dest_port);
 
         // Print packet info
         print_packet(&packet);
