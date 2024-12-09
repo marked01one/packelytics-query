@@ -1,0 +1,30 @@
+{
+    "configurations": [
+        {
+            "name": "kernel",
+            "intelliSenseMode": "linux-gcc-x64",
+            "defines": [
+                "__KERNEL__",
+                "MODULE"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "includePath": [
+                "/usr/src/linux-headers-6.8.0-76060800-generic/arch/x86/include",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/arch/x86/include/generated",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/include",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/arch/x86/include/uapi",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/arch/x86/include/generated/uapi",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/include/uapi",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/include/generated/uapi",
+                "/usr/src/linux-headers-6.8.0-76060800-generic/ubuntu/include",
+                "/usr/lib/gcc/x86_64-linux-gnu/12/include"
+            ],
+            "compilerArgs": [
+                "-nostdinc",
+                "-include", "/usr/src/linux-headers-6.8.0-76060800-generic/include/linux/kconfig.h",
+                "-include", "/usr/src/linux-headers-6.8.0-76060800-generic/include/linux/compiler_types.h"
+            ]
+        }
+    ],
+    "version": 4
+}
